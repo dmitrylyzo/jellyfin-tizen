@@ -20,6 +20,7 @@ jobs:
       run: |
         git remote add wikirepo ${{ github.server_url }}/${{ github.repository }}.wiki.git
         git fetch wikirepo
+        git log -5 --format='%H'
 
     - name: 'Push Wiki branch to Wiki repo'
       run: |
