@@ -2,7 +2,7 @@ name: Sync Wiki
 
 on:
   push:
-    branches: [ wiki/master ]
+    branches: [ ci, wiki/master ]
   workflow_dispatch:
 
 jobs:
