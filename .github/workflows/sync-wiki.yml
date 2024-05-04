@@ -1,0 +1,23 @@
+name: Sync Wiki
+
+on:
+  push:
+    branches: [ wiki/master ]
+
+jobs:
+  wiki-sync:
+    name: Sync Wiki
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4.1.1
+ 
+    - name: Add Wiki remote
+      run: |
+        git remote add wiki ${{ github.server_url }}/${{ github.repository }}.wiki.git
+        git fetch wiki
+
+    - name: 'Push Wiki branch to Wiki repo'
+      run: |
+        git push wiki wiki/master:master
